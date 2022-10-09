@@ -3,6 +3,7 @@ venv/
 env/
 
 # Ignore editor files
+.idea/
 .vscode/
 .*.swp
 .vs/

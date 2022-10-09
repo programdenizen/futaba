@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  db:
+    build: ./db/
+
+  futaba:
+    volumes:
+      - ../:/app
+    build:
+      context: ../
+      target: "app"
+      args:
+        - "UID=${UID:-1000}"
+        - "GID=${GID:-1000}"
+      dockerfile: ./docker/app/Dockerfile
+    user: $UID:$GID
+    depends_on:
+      - db
